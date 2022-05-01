@@ -1,9 +1,26 @@
-n = 3
-m = 4
-# arr = [[0] * m] * 3
-# 리스트 컴프리헨션이 2차원 리스트 초기화할 때 가장 정확한 방법이다.
-arr = [[0] * m for _ in range(n)]
-print(arr)
+# import heapq
 
-arr[1][1] = 5
-print(arr)
+# list = [1,3,5,7,9,2,4,6,8,0]
+# h = []
+# for i in list:
+#   heapq.heappush(h, i)
+
+# print(h)
+
+import heapq
+
+def heapsort(iterable):
+  h = []
+  result = []
+  # 모든 원소를 차례대로 힙에 삽입
+  for value in iterable:
+    heapq.heappush(h, value)
+  print(h)
+  # 힙에 삽입된 모든 원소를 차례대로 꺼내어 담기
+  for _ in range(len(h)):
+    result.append(heapq.heappop(h))
+  return result
+
+result = heapsort([1,3,5,7,9,2,4,6,8,0])
+print(result)
+
