@@ -1,19 +1,18 @@
-from bisect import bisect_left, bisect_right
+# from collections import deque
 
-# 값이 [left_value, right_value]인 데이터의 개수를 반환하는 함수
-def count_by_range(a, left_value, right_value):
-  right_index = bisect_right(a, right_value)
-  left_index = bisect_left(a, left_value)
-  return right_index - left_index
+# data = deque([2, 3, 4])
+# data.appendleft(1)
+# data.append(5)
 
-# 리스트 선언
-a = [1,2,3,3,3,3,4,4,8,9]
+# print(data)
+# print(list(data))
 
-# left_index = bisect_left(a,-1)
-# print(left_index)
-# 값이 4인 데이터 개수 출력
-print(count_by_range(a,4,4))
+from collections import Counter
 
-# 값이 [-1,3] 범위에 있는 데이터 개수 출력
-print(count_by_range(a,-1,3))
+# 변수 = Counter(리스트)
+counter = Counter(['red', 'blue', 'red', 'green', 'blue', 'blue'])
 
+print(counter['blue'])
+print(counter['green'])
+# 자동으로 세서 키와 값 쌍으로 이루게 해줌
+print(dict(counter))
