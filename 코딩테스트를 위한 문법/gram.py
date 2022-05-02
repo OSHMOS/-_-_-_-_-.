@@ -1,42 +1,19 @@
-# import heapq
+from bisect import bisect_left, bisect_right
 
-# list = [1,3,5,7,9,2,4,6,8,0]
-# h = []
-# for i in list:
-#   heapq.heappush(h, i)
-#   print(h)
+# 값이 [left_value, right_value]인 데이터의 개수를 반환하는 함수
+def count_by_range(a, left_value, right_value):
+  right_index = bisect_right(a, right_value)
+  left_index = bisect_left(a, left_value)
+  return right_index - left_index
 
-# import heapq
+# 리스트 선언
+a = [1,2,3,3,3,3,4,4,8,9]
 
-# def heapsort(iterable):
-#   h = []
-#   result = []
-#   # 모든 원소를 차례대로 힙에 삽입
-#   for value in iterable:
-#     heapq.heappush(h, value)
-#   # 힙에 삽입된 모든 원소를 차례대로 꺼내어 담기
-#   for _ in range(len(h)):
-#     # 순서와 관계없이 heappop()은 heap에서 가장 작은 원소를 반환한다.
-#     result.append(heapq.heappop(h))
-#   return result
+# left_index = bisect_left(a,-1)
+# print(left_index)
+# 값이 4인 데이터 개수 출력
+print(count_by_range(a,4,4))
 
-# result = heapsort([1,3,5,7,9,2,4,6,8,0])
-# print(result)
-
-import heapq
-
-def heapsort(iterable):
-  h = []
-  result = []
-  # 모든 원소를 차례대로 힙에 삽입
-  for value in iterable:
-    heapq.heappush(h, -value)
-    print(h)
-  # 힙에 삽입된 모든 원소를 차례대로 꺼내어 담기
-  for _ in range(len(h)):
-    result.append(-heapq.heappop(h))
-  return result
-
-result = heapsort([1,3,5,7,9,2,4,6,8,0])
-print(result)
+# 값이 [-1,3] 범위에 있는 데이터 개수 출력
+print(count_by_range(a,-1,3))
 
