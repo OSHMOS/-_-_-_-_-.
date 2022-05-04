@@ -13,4 +13,7 @@ user = {
 
 # 인코딩: 파이썬 변수를 JSON 객체로 변환(띄어쓰기 네 칸 들여쓰기 적용)
 json_data = json.dumps(user, indent=4)
-print(json_data)
+
+# 디코딩: JSON 객체를 파이썬 변수로 변환
+data = json.loads(json_data)
+print(data)
