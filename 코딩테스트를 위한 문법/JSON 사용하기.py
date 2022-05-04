@@ -11,9 +11,7 @@ user = {
     ]
 }
 
-# 인코딩: 파이썬 변수를 JSON 객체로 변환(띄어쓰기 네 칸 들여쓰기 적용)
-json_data = json.dumps(user, indent=4)
-
-# 디코딩: JSON 객체를 파이썬 변수로 변환
-data = json.loads(json_data)
-print(data)
+# JSON 데이터로 변환하여 파일로 저장
+with open('user.json', mode='w', encoding='utf-8') as file:
+    # json.dumps와 json.dump는 다르다.
+    json.dump(user, file, indent=4)
