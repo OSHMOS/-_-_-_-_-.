@@ -6,11 +6,11 @@ l, c = map(int, input().split(' '))
 # 가능한 암호를 사전식으로 출력해야 하므로 입력 이후에 정렬 수행
 # input().split()은 리스트를 반환해준다.
 array = input().split(' ')
-print(array)
-print(type(array))
+# print(array)
+# print(type(array))
 array.sort()
-print(array)
-print(type(array))
+# print(array)
+# print(type(array))
 
 # 길이가 l인 모든 암호 조합을 확인
 for password in combinations(array, l):

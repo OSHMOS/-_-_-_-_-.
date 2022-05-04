@@ -1,14 +1,17 @@
-import itertools
+from itertools import combinations
 
 L, C = map(int, input().split())
-# pw_data = str(input().split())
-pw_data = list(input().split())
+list = input().split()
+list.sort()
 
-cnt = 0
+contents = ['a', 'i', 'e', 'o', 'u']
 
-for x in itertools.combinations(pw_data, 4):
-    if 'a' in x or 'i' in x or 'e' in x or 'o' in x or 'u' in x:
-        pw_list = sorted(list(x))
-        pw_result = ''.join(pw_list)
-        cnt += 1
-    print(pw_result, cnt)
+for password in combinations(list, L):
+    cnt = 0
+    # if 'a' in x or 'i' in x or 'e' in x or 'o' in x or 'u' in x:
+    for content in contents:
+        if content in password:
+            cnt += 1
+    # if cnt >= 1 and cnt <= L - 2:
+    if 1 <= cnt <= L - 2:
+        print(''.join(password))
